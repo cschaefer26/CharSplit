@@ -74,9 +74,9 @@ def main(input_file: str, output_file: str, max_words: int = 10000000, max_len: 
     sys.stderr.write('\n')
 
     print('Calculating ngrams probabilities')
-    start_ngrams = {k: v/all_ngrams[k] for k,v in start_ngrams.items() if v > 1}
-    end_ngrams = {k: v/all_ngrams[k] for k,v in end_ngrams.items() if v > 1}
-    in_ngrams = {k: v/all_ngrams[k] for k,v in in_ngrams.items() if v > 1}
+    start_ngrams = {k: v/all_ngrams[k] for k,v in start_ngrams.items() if v > 0}
+    end_ngrams = {k: v/all_ngrams[k] for k,v in end_ngrams.items() if v > 0}
+    in_ngrams = {k: v/all_ngrams[k] for k,v in in_ngrams.items() if v > 0}
 
     # Write dicts to file
     with open(output_file, "w") as f:
